@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/announce/announce",
+    "pages/index/index",
+    "pages/return/return",
+    "pages/register/register",
+    "pages/agreement/agreement",
+    "pages/plus/plus",
+    "pages/logs/logs",
+    "pages/deregister/deregister"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "过夜旅客暖心服务用品领取",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "申领"
+      },
+      {
+        "pagePath": "pages/return/return",
+        "text": "归还"
+      },
+      {
+        "pagePath": "pages/announce/announce",
+        "text": "公告"
+      },
+      {
+        "pagePath": "pages/deregister/deregister",
+        "text": "注销"
+      }
+    ]
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

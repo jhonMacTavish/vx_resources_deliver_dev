@@ -1,0 +1,6 @@
+var includes = function (string, searchElement) {
+  return string.indexOf(searchElement) > -1
+}
+module.exports = {
+  includes: includes
+}

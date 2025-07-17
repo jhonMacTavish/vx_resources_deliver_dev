@@ -1,0 +1,62 @@
+<!--pages/announce/announce.wxml-->
+<image src="../../images/tips.png" style="height: 48px; width: 100%;" mode="" />
+<view class="view-section" style="height: {{viewHeight-bottomPadding-50}}px;">
+  <scroll-view scroll-y="true" style="height: 100%; text-align: center;">
+    <view class="card">
+      <!-- <view class="title-section">
+    <view>过夜旅客暖心服务用品领取提示</view>
+    <view class="tips">
+      天府机场为在隔离区内过夜的旅客提供暖心服务用品
+    </view>
+  </view> -->
+      <view class="announce-section">
+        <view style="display: inline-block; padding-bottom: 10px; border-bottom: dashed 1px red;">
+          <rich-text nodes="{{title.content}}"></rich-text>
+        </view>
+        <view style="margin: 10px 0;">
+          <rich-text nodes="{{tips.content}}"></rich-text>
+        </view>
+        <view style="padding: 10px 0; background-color: #E2EFF6;">
+          <view class="{{index%2==0?'title':'content'}}" wx:for="{{noticeList}}" wx:key="index">
+            <rich-text nodes="{{noticeList[index].content}}"></rich-text>
+          </view>
+          <!-- <view class="title">
+            <rich-text nodes="{{noticeList[2].content}}"></rich-text>
+          </view>
+          <view class="content">
+            <rich-text nodes="{{noticeList[3].content}}"></rich-text>
+          </view>
+          <view class="title">
+            <rich-text nodes="{{noticeList[4].content}}"></rich-text>
+          </view>
+          <view class="content">
+            <rich-text nodes="{{noticeList[5].content}}"></rich-text>
+          </view>
+          <view class="title">
+            <rich-text nodes="{{noticeList[6].content}}"></rich-text>
+          </view>
+          <view class="content">
+            <rich-text nodes="{{noticeList[7].content}}"></rich-text>
+          </view>
+          <view class="title">
+            <rich-text nodes="{{noticeList[8].content}}"></rich-text>
+          </view>
+          <view class="content">
+            <rich-text nodes="{{noticeList[9].content}}"></rich-text>
+          </view>
+          <view class="title">
+            <rich-text nodes="{{noticeList[10].content}}"></rich-text>
+          </view>
+          <view class="content">
+            <rich-text nodes="{{noticeList[11].content}}"></rich-text>
+          </view> -->
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <tabbar />
+</view>
+<view class="button" style="margin: 0 20px; width: auto;" bindtap="confirm">
+  <label for="">确 定</label>
+</view>
+<image src="../../images/banner.png" style="position: absolute;height: 48px; width: 100%;bottom: {{bottomPadding}}px;" mode="" />

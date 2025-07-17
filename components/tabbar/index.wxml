@@ -1,0 +1,8 @@
+<view class="tab-bar">
+  <view class="tab-bar-border"></view>
+  <wxs module="jstools" src="/wxs/includes.wxs"></wxs>
+  <view wx:for="{{list}}" wx:key="key" class="tab-bar-item" data-path="{{item.pagePath}}" data-key="{{item.key}}" bindtap="switchTab">
+    <image style="width: 54rpx; height: 54rpx;" src="{{ jstools.includes(item.pagePath, currentPage) ? item.selectedIconPath : item.iconPath }}"></image>
+    <view class="offset" style="color: {{ jstools.includes(item.pagePath, currentPage) ? selectedColor : color }}; font-size: 26rpx; letter-spacing: 1px;">{{item.text}}</view>
+  </view>
+</view>

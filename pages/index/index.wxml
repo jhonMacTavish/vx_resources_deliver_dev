@@ -1,0 +1,88 @@
+<!--index.wxml-->
+<view class="container" style="padding-bottom: {{bottomPadding}}px;">
+  <view class="filling-section card" style="{{!showButton && travalers.length ? (travalers.length == 1 ? 'height: 130px' : travalers.length == 2 ? 'height: 160px' : 'height: 216px') : ''}}">
+    <view class="title">
+      <label>乘机人信息</label>
+      <label wx:if="{{!showButton && !FLAG && !orderId}}" class="plus-travaler" bindtap="plusTravaler">
+        <image src="../../images/plus.png" alt="" />新增乘机人
+      </label>
+    </view>
+    <view wx:if="{{showButton}}" class="plus-wrap">
+      <scroll-view scroll-y style="height: 100%; overflow: hidden;">
+        <view class="input-item" wx:for="{{inputs}}" wx:key="index">
+          <label for="">{{item.name}}</label>
+          <input disabled="{{index==0 && !addTravaler}}" value="{{item.value}}" type="text" placeholder="{{index==0?'与登机牌一致':index==1?'与登机牌一致(例SC8822)':'与登机牌一致(例32A)'}}" bindtap="goToRegister" bindinput="handleInput" data-index="{{index}}" />
+        </view>
+        <view style="flex:1;display: flex; flex-direction:column-reverse;">
+          <view style="display: flex; justify-content: space-between;">
+            <view wx:if="{{travalers.length}}" class="button" style="width: 48%; background-color: lightgray;" bindtap="cancel">
+              <label for="">取 消</label>
+            </view>
+            <view class="button" style="{{travalers.length?'width: 48%':null}}" bindtap="confirm">
+              <label for="">验 证</label>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <view wx:else="" class="travaler-list">
+      <scroll-view scroll-y style="max-height: 170px; overflow: hidden;">
+        <view class="travaler-item" wx:for="{{travalers}}" wx:key="index">
+          <view class="item-wrap">
+            <view class="name"><label for="">{{item.name}}</label></view>
+            <view class="info">
+              <label for="">航班号: {{item.flightNo}}</label>
+              <label for="" style="margin-right: 40px;">座位号: {{item.seatNo}}</label>
+            </view>
+          </view>
+          <!-- <view wx:if="{{editable}}" class="editor">
+            <label for="" bindtap="edit" data-index="{{index}}">
+              <image style="height: 30px;width: 30px;" src="../../images/edit.png" mode="" />
+            </label>
+            <label for="" style="margin-left: 10px;" bindtap="delete" data-index="{{index}}">
+              <image style="height: 30px;width: 30px;" src="../../images/delete.png" mode="" />
+            </label>
+          </view> -->
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view id="sectionHeight" class="choice-section card">
+    <view class="title">物品选择</view>
+    <scroll-view scroll-y style="height: 100%; overflow: hidden;">
+      <checkbox-group bindchange="checkboxChange">
+        <view class="checkbox-item" wx:for="{{items}}" wx:key="value">
+          <label class="checkbox-solt">
+            <checkbox disabled="{{orderId}}" value="{{item.value}}" checked="{{item.checked}}" />
+            <text>{{item.name}}</text>
+            <text style="color: red; font-size: 12px;">{{index==0 || index==1?'该物品需归还':''}}</text>
+          </label>
+          <label class="stepper">
+            <!-- 减号 -->
+            <text class="{{minusStatus[index].disabled?'disabled':'normal'}}" bindtap="bindMinus" data-index="{{index}}">-</text>
+            <!-- 数值 -->
+            <input disabled="{{true}}" type="number" bindchange="bindManual" value="{{item.num}}" />
+            <!-- 加号 -->
+            <text class="{{plusStatus[index].disabled?'disabled':'normal'}}" bindtap="bindPlus" data-index="{{index}}">+</text>
+          </label>
+        </view>
+      </checkbox-group>
+    </scroll-view>
+  </view>
+  <view class="QRcode-section card">
+    <!-- <view class="title">扫码领取</view> -->
+    <view class="button" style="background-color: {{clickable && !orderId? '#1890ff':'#ccc'}};" bindtap="request">
+        <label for="">生成领取二维码，请到柜台领取</label>
+      </view>
+    <view class="QRcode-wrap">
+      <view class="QRcode">
+        <view wx:if="{{!orderId}}">
+          <text>暂未申请物资</text>
+        </view>
+        <canvas wx:else="" canvas-id="myQrcode"/>
+      </view>
+      
+    </view>
+  </view>
+  <tabbar />
+</view>

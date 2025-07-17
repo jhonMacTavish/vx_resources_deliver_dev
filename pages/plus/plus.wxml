@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view id="container" style="{{containerStyle}}">
+  <button class="block" style="width: 300rpx; margin: 100rpx auto;">示例按钮</button>
+  <a class="block" style="display: block; margin: 100rpx auto; width: 300rpx; text-align: center;">示例超链接</a>
+  <text class="block" style="display: block; margin: 100rpx auto; width: 300rpx; text-align: center;">示例文本</text>
+</view>
+
+<text>\n\n</text>
+
+<view id="container1" style="{{containerStyle1}}">
+  <button class="block1" style="width: 300rpx; margin: 100rpx auto;">示例按钮</button>
+  <a class="block1" style="display: block; margin: 100rpx auto; width: 300rpx; text-align: center;">示例超链接</a>
+  <text class="block1" style="display: block; margin: 100rpx auto; width: 300rpx; text-align: center;">示例文本</text>
+</view>
+
+<button bindtap="changeStart">开启动画</button>
+

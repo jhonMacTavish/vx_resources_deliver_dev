@@ -1,0 +1,9 @@
+<!--pages/deregister/deregister.wxml-->
+<view class="container" style="padding-bottom: {{bottomPadding}}px;">
+  <view style="text-align: center;">
+    <label class="deregister" bindtap="deregister">
+    <image src="../../images/deregister.png" alt="" />注销账号
+  </label>
+  </view>
+  <tabbar />
+</view>

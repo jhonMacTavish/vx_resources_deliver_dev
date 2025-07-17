@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="logo-section card">
+    <image class="logo" src="../../images/logo.png" mode="" />
+  </view>
+  <view class="register-section card">
+    <view class="input-item" wx:for="{{inputs}}" wx:key="index">
+      <label for="">{{item.name}}</label>
+      <input value="{{item.value}}" type="{{index == 0? 'text': 'number'}}" maxlength="{{index==1?11:index==2?4:20}}" placeholder="{{item.placeholder}}" bindinput="handleInput" data-index="{{index}}" />
+      <view wx:if="{{index==2}}" class="button captchaBtn" style="background-color: {{captcha.disabled?'#ccc': '#1890ff'}}" bindtap="getCaptcha">{{captcha.message}}</view>
+    </view>
+    <view class="agreement-check">
+      <checkbox value="agree" checked="{{checked}}" bindtap="onCheckboxChange"></checkbox>
+      <text>已阅读并同意</text>
+      <navigator url="/pages/agreement/agreement?param=userAgreement" class="link">用户协议</navigator>
+      <text>及</text>
+      <navigator url="/pages/agreement/agreement?param=privacyPolicy" class="link">隐私协议</navigator>
+    </view>
+    <view class="button" style="background-color: {{clickable? '#1890ff':'#ccc'}};" bindtap="confirm"><text space="nbsp"> 注 册 </text></view>
+  </view>
+</view>
